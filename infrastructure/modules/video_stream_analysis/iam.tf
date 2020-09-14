@@ -30,6 +30,6 @@ data "aws_iam_policy_document" "camera_role_inline_polic_document" {
       "kinesisvideo:GetIceServerConfig"
     ]
 
-    resources = "arn:aws:kinesisvideo:${var.region}:${var.account_id}:channel/$${credentials-iot:ThingName}/*"
+    resources = [ "arn:aws:kinesisvideo:${var.region}:${var.account_id}:channel/$${credentials-iot:ThingName}/*" ]
   }
 }
