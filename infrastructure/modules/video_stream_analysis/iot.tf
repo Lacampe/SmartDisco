@@ -20,20 +20,20 @@ resource "aws_iot_policy" "camera_iot_policy" {
   name = "${var.project}-${var.env}-camera-iot-policy"
 
   policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
     {
-      "Version": "2012-10-17",
-      "Statement": [
-        {
-          "Effect": "Allow",
-          "Action": [
-            "iot:Connect",
-            "iot:AssumeRoleWithCertificate"
-          ],          
-          "Resource": "${aws_iot_role_alias.camera_role_alias.arn}"
-        }
-      ]
+      "Effect": "Allow",
+      "Action": [
+        "iot:Connect",
+        "iot:AssumeRoleWithCertificate"
+      ],          
+      "Resource": "${aws_iot_role_alias.camera_role_alias.arn}"
     }
-  EOF
+  ]
+}
+EOF
 }
 
 resource "aws_iot_policy_attachment" "camera_iot_policy_attachment" {
