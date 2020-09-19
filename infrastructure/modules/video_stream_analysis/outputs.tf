@@ -19,14 +19,6 @@ resource "aws_cloudformation_stack" "_" {
             "Type": "String",
             "Value": "${data.aws_iot_endpoint.camera_credentials_provider_endpoint.endpoint_address}"
           }
-        },
-        "IoTCertificatePrivateKey": {
-          "Type": "AWS::SSM::Parameter",
-          "Properties": {
-            "Name": "iot-certificate-private-key",
-            "Type": "String",
-            "Value": "${aws_iot_certificate.camera_certificate.private_key}"
-          }
         }        
       },
       "Outputs": {
@@ -35,10 +27,7 @@ resource "aws_cloudformation_stack" "_" {
         },
         "IoTCredentialsProviderEndpoint": {
           "Value": "${data.aws_iot_endpoint.camera_credentials_provider_endpoint.endpoint_address}"
-        },
-        "IoTCertificatePrivateKey": {
-          "Value": "${aws_iot_certificate.camera_certificate.private_key}"
-        }        
+        }
       }
     }
   STACK
