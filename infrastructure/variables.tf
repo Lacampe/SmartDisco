@@ -13,3 +13,7 @@ variable "REGION" {
 variable "ACCOUNT_ID" {
   type = string
 }
+
+variable "IOT_CERTIFICATE_ARN" {
+  type = string
+}
