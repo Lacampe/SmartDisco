@@ -40,3 +40,7 @@ resource "aws_iot_policy_attachment" "camera_iot_policy_attachment" {
   policy = aws_iot_policy.camera_iot_policy.name
   target = aws_iot_certificate.camera_certificate.arn
 }
+
+data "aws_iot_endpoint" "camera_credentials_provider_endpoint" {
+  endpoint_type = "iot:CredentialProvider"
+}
